@@ -19,7 +19,7 @@ export default function Form() {
         "https://uji2wogmxb.execute-api.us-east-1.amazonaws.com/createUser",
         data
       )
-      .then((res) => console.log(res))
+      .then((res) => console.log(res.data))
       .catch((e) => console.error(e));
   };
   const onClickDelete = () => {};

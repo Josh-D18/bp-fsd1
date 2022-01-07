@@ -1,4 +1,5 @@
 // import { makeStyles } from "@mui/material";
+import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -22,16 +23,38 @@ export default function BoxUsers() {
   return (
     <>
       {users &&
-        users.map((user) => (
-          <Box key={user._id} sx={{ display: "flex", flexDirection: "column" }}>
-            <h3>{user.name}</h3>
-            <div>
-              <h4>{user.email}</h4>
-              <h4>{user.phonenumber}</h4>
-            </div>
-            <h4>{user.address}</h4>
-          </Box>
-        ))}
+        users.map((user) => {
+          let userArr = JSON.parse(user.body);
+          return [userArr].map((user) => (
+            <Box
+              key={user._id}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div>
+                <h4 className="listusers__title">{user.name}</h4>
+                <div>
+                  <span>{user.email}</span> | <span>{user.phonenumber}</span>
+                </div>
+                <h4>{user.address}</h4>
+              </div>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <Button variant="outlined">EDIT</Button>
+                <Button variant="outlined">DELETE</Button>
+              </Box>
+            </Box>
+          ));
+        })}
     </>
   );
 }
