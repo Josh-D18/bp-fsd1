@@ -14,14 +14,7 @@ export default function BoxUsers() {
       .then((res) => setUsers(res.data))
       .catch((e) => console.error(e));
   };
-  // const useStyles = makeStyles({
-  //   root: {
-  //     color: "#6200ee",
-  //     "font-size": "1rem",
-  //     "border-color": "#c3c3c3",
-  //   },
-  // });
-  // const classes = useStyles();
+
   useEffect(() => {
     return getData();
   }, []);

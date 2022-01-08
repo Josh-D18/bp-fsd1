@@ -1,5 +1,5 @@
 .listusers {
-  margin: 1rem 10.5rem 1rem 10.5rem;
+  margin: 1rem 2rem 1rem 2rem;
 
   &__infoContainer {
     display: flex;
@@ -17,5 +17,11 @@
   }
   &__info {
     font-size: 0.889rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .listusers {
+    margin: 1rem 11rem 1rem 11rem;
   }
 }

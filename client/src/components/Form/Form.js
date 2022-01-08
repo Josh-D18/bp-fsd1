@@ -12,6 +12,7 @@ export default function Form() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => postData(data);
 
   let history = useNavigate();
@@ -25,8 +26,6 @@ export default function Form() {
       .then(() => history("/listusers"))
       .catch((e) => console.error(e));
   };
-
-  const onClickDelete = () => {};
 
   return (
     <>
@@ -103,24 +102,33 @@ export default function Form() {
               helperText={errors?.address ? errors.address.message : null}
             />
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              paddingTop: "2rem",
+            }}
+          >
+            <Box>
+              <Button
+                sx={{
+                  backgroundColor: "#6200ee",
+                }}
+                variant="contained"
+                color="secondary"
+                type="submit"
+                size="small"
+              >
+                Save
+              </Button>
+            </Box>
+            <Box>
+              <Button variant="outlined" color="secondary" size="small">
+                Delete
+              </Button>
+            </Box>
+          </Box>
         </Container>
-
-        <Button
-          variant="contained"
-          color="secondary"
-          type="submit"
-          size="small"
-        >
-          Save
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="small"
-          onClick={onClickDelete}
-        >
-          Delete
-        </Button>
       </form>
     </>
   );
