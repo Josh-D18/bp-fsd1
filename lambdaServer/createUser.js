@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
-const MONGODB_URI =
-  "mongodb+srv://josh:hello1234@cluster0.63g31.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+require("dotenv").config();
+const MONGODB_URI = process.env.MONGODB_URI;
 
 let cachedDb = null;
 async function connectToDatabase() {
