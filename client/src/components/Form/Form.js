@@ -4,6 +4,7 @@ import { Container } from "@mui/material";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const {
@@ -13,15 +14,18 @@ export default function Form() {
   } = useForm();
   const onSubmit = (data) => postData(data);
 
+  let history = useNavigate();
+
   const postData = async (data) => {
     await axios
       .post(
         "https://uji2wogmxb.execute-api.us-east-1.amazonaws.com/createUser",
         data
       )
-      .then((res) => console.log(res.data))
+      .then(() => history("/listusers"))
       .catch((e) => console.error(e));
   };
+
   const onClickDelete = () => {};
 
   return (

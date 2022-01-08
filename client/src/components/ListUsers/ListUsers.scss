@@ -1,0 +1,21 @@
+.listusers {
+  margin: 1rem 10.5rem 1rem 10.5rem;
+
+  &__infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__btnContainer {
+    margin: 1.5rem;
+  }
+
+  &__infoName {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  &__info {
+    font-size: 0.889rem;
+  }
+}
